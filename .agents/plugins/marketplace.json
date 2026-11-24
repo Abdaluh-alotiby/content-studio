@@ -1,0 +1,20 @@
+{
+  "name": "content-studio-marketplace",
+  "interface": {
+    "displayName": "Content Studio"
+  },
+  "plugins": [
+    {
+      "name": "content-studio",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    }
+  ]
+}

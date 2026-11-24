@@ -1,6 +1,18 @@
 {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "content-studio",
   "version": "1.0.0",
-  "description": "Portable dual-host content production skill and plugin."
+  "description": "Plan, build, animate, render, and verify multimedia content.",
+  "author": {
+    "name": "Abdaluh Alotiby"
+  },
+  "repository": "https://github.com/Abdaluh-alotiby/content-studio",
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "animation",
+    "content",
+    "rendering"
+  ]
 }
 

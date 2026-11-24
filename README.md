@@ -20,19 +20,26 @@ Add this repository as a plugin marketplace or install the plugin folder with Cl
 
 ## Install in Codex
 
-Install the repository as a Codex plugin using its `.codex-plugin/plugin.json` manifest. The skill is available as `$content-studio`. Use `$content-studio plan <request>`, `build`, `animate`, `captions`, `render`, `qa`, or `publish-pack`. Host plugin support depends on the installed Codex version; the skill can also be copied into a Codex skills directory.
+Add this repository as a Codex marketplace, then install the plugin:
+
+```sh
+codex plugin marketplace add Abdaluh-alotiby/content-studio --ref main
+codex plugin add content-studio@content-studio-marketplace
+```
+
+The skill is available as `$content-studio`. Use `$content-studio plan <request>`, `build`, `animate`, `captions`, `render`, `qa`, or `publish-pack`. The skill can also be copied directly into a Codex skills directory.
 
 ## Local commands
 
 Requires Python 3.10+. FFmpeg and ffprobe are needed for media verification; install individual renderers and model dependencies using their upstream guides.
 
 ```sh
-python plugins/content-studio/skills/content-studio/scripts/content.py --help
-python plugins/content-studio/skills/content-studio/scripts/content.py init ./my-video --engine hyperframes --title "My video"
-python plugins/content-studio/skills/content-studio/scripts/content.py doctor --project ./my-video
-python plugins/content-studio/skills/content-studio/scripts/content.py coverage ./my-video
-python plugins/content-studio/skills/content-studio/scripts/content.py verify ./my-video/final.mp4 --width 1920 --height 1080 --fps 30 --duration 15 --report ./my-video/qa/media.json
-python plugins/content-studio/skills/content-studio/scripts/content.py complete ./my-video
+python skills/content-studio/scripts/content.py --help
+python skills/content-studio/scripts/content.py init ./my-video --engine hyperframes --title "My video"
+python skills/content-studio/scripts/content.py doctor --project ./my-video
+python skills/content-studio/scripts/content.py coverage ./my-video
+python skills/content-studio/scripts/content.py verify ./my-video/final.mp4 --width 1920 --height 1080 --fps 30 --duration 15 --report ./my-video/qa/media.json
+python skills/content-studio/scripts/content.py complete ./my-video
 ```
 
 Caption conversion reads a JSON list or an object with a `segments` list. Each segment needs numeric `start`, `end`, and string `text`. It validates timing and writes SRT; it does not transcribe speech.
@@ -40,7 +47,7 @@ Caption conversion reads a JSON list or an object with a `segments` list. Each s
 ## Tests
 
 ```sh
-python -m unittest discover -s plugins/content-studio/tests -v
+python -m unittest discover -s tests -v
 ```
 
 These package tests check layout, command files, and the 17-tool catalog. They are not end-to-end renderer tests.

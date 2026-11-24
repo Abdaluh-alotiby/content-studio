@@ -43,6 +43,17 @@ class PackageTests(unittest.TestCase):
         for name in ("plan", "build", "animate", "captions", "render", "qa", "publish-pack", "tools", "content-studio"):
             self.assertTrue((commands / f"{name}.md").is_file())
 
+    def test_codex_marketplace_manifest(self):
+        marketplace = json.loads((ROOT / ".agents" / "plugins" / "marketplace.json").read_text(encoding="utf-8"))
+        self.assertEqual(marketplace["name"], "content-studio-marketplace")
+        self.assertEqual(marketplace["interface"]["displayName"], "Content Studio")
+        plugin = marketplace["plugins"][0]
+        self.assertEqual(plugin["name"], "content-studio")
+        self.assertEqual(plugin["source"], {"source": "local", "path": "./"})
+        self.assertEqual(plugin["policy"]["installation"], "AVAILABLE")
+        self.assertIn("authentication", plugin["policy"])
+        self.assertEqual(plugin["category"], "Creativity")
+
     def test_init_and_caption_commands(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
