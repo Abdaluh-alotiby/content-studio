@@ -1,0 +1,11 @@
+{
+  "name": "content-studio",
+  "plugins": [
+    {
+      "name": "content-studio",
+      "source": "./",
+      "description": "Content Studio for Claude and Codex"
+    }
+  ]
+}
+

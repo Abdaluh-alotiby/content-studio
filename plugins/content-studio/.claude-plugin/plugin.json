@@ -1,0 +1,12 @@
+{
+  "name": "content-studio",
+  "version": "1.0.0",
+  "description": "Plan, build, animate, render, and verify multimedia content with a 17-tool workflow.",
+  "skills": [
+    "./skills/"
+  ],
+  "commands": [
+    "./commands/"
+  ]
+}
+

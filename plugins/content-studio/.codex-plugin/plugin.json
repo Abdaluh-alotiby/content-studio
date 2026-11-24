@@ -1,0 +1,9 @@
+{
+  "name": "content-studio",
+  "version": "1.0.0",
+  "description": "Plan, build, animate, render, and verify multimedia content using the Content Studio skill.",
+  "skills": [
+    "./skills/content-studio"
+  ]
+}
+
